@@ -45,7 +45,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.loadLogo.clicked.connect(self.addLogo)
         self.addProduct.clicked.connect(self.add_product)
         self.printSaveInvoice.clicked.connect(self.showMenu)
-
         self.newInvoice.clicked.connect(self.new_nvoice)
 
         self.showMaximized()
@@ -110,17 +109,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def new_nvoice(self):
 
-        for i in range(self.table.rowCount()):
-            self.table.removeRow(0)
-
-        self.client.clear()
-        self.address_client.clear()
-        self.quantity.clear()
-        self.price.clear()
-        self.total.clear()
-        self.discount.clear()
-        self.payment.clear()
-        self.rest.clear()
+        self.cancelInvoice()
 
         k = self.n_invoice.text()
         k = int(k.split("-", 1)[0]) + 1
