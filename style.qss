@@ -1,0 +1,22 @@
+#MainWindow {
+    background-color: white;
+}
+
+/* #logo {
+    padding: 60px;
+} */
+
+
+#label_4,#label_3,#label_2,#label_9,#label,#label_14,#label_15,#label_16,#label_17 {
+    color: #7B68EE;
+}
+
+#companyName,#email,#phone,#companyAddress,#address_client,#quantity,#price,#client,#address_client,#total,#discount,#payment,#rest {
+	border: none;
+	border-bottom: 2px solid #E5E4E2;
+
+}
+
+#companyName:focus,#email:focus,#phone:focus,#companyAddress:focus,#quantity:focus,#price:focus,#client:focus,#address_client:focus,#total:focus,#discount:focus,#payment:focus,#rest:focus {
+    border-bottom: 2px solid #7B68EE;
+}
