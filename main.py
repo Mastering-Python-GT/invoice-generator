@@ -16,6 +16,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.m_document = None
         self.logoFile = None
         self.n_invoice.setText("1-2024")
+        self.total.setText("0")
+        self.discount.setText("0")
+        self.payment.setText("0")
+        self.rest.setText("0")
         d_ate = date.today()
         self.today = d_ate.strftime("%d-%m-%Y")
         self.date.setText(self.today)
@@ -44,7 +48,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.payment.textChanged.connect(self.payment_change)
         self.printSaveInvoice.clicked.connect(self.showMenu)
 
-        self.pushButton.clicked.connect(self.cancel)   
+        self.pushButton.clicked.connect(self.cancelPrint)   
         self.newInvoice.clicked.connect(self.new_nvoice)
 
         self.showMaximized()
@@ -92,7 +96,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         else:
             e = int(self.payment.text())
             e = '{:,}'.format(e)
-
+            
         self.payment.setText(str(e))
 
     def showMenu(self):
@@ -107,6 +111,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         button_action2.triggered.connect(self.printInvoice)
         context.addAction(button_action2)
 
+        button_action3 = QAction("Cancel Invoice")
+        button_action3.triggered.connect(self.cancelInvoice)
+        context.addAction(button_action3)
+
         context.exec(QCursor.pos())
 
     def new_nvoice(self):
@@ -118,10 +126,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.address_client.clear()
         self.quantity.clear()
         self.price.clear()
-        self.total.clear()
-        self.discount.clear()
-        self.payment.clear()
-        self.rest.clear()
+        self.total.setText("0")
+        self.discount.setText("0")
+        self.payment.setText("0")
+        self.rest.setText("0")
 
         k = self.n_invoice.text()
         k = int(k.split("-", 1)[0]) + 1
@@ -135,12 +143,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def saveInvoice(self):
 
         self.createInvoice()
+
         file = self.n_invoice.text()+"_"+self.client.text()+".pdf"
-        shutil.copy(f'{file}', f'./saved_Invoices/{file}')
+
+        shutil.copyfile(f'{file}', f'./saved_Invoices/{file}')
+
         os.remove(file)
 
+    def cancelInvoice(self):
 
-    def cancel(self):
+        for i in range(self.table.rowCount()):
+            self.table.removeRow(0)
+
+        self.client.clear()
+        self.address_client.clear()
+        self.quantity.clear()
+        self.price.clear()
+        self.total.setText("0")
+        self.discount.setText("0")
+        self.payment.setText("0")
+        self.rest.setText("0")
+
+
+    def cancelPrint(self):
         self.m_document = QPdfDocument()
         self.stackedWidget.setCurrentIndex(1)
         file = self.n_invoice.text()+"_"+self.client.text()+".pdf"
@@ -279,5 +304,3 @@ with open("style.qss", "r") as f:
 w = MainWindow()
 
 app.exec()
-
-
