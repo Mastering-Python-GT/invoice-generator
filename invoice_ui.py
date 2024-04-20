@@ -1,25 +1,8 @@
-# -*- coding: utf-8 -*-
+from PySide6.QtCore import (QCoreApplication, QMetaObject, QSize, Qt)
+from PySide6.QtGui import QFont
+from PySide6.QtWidgets import (QComboBox, QGridLayout, QLabel, QLineEdit,  QPushButton, QSizePolicy, QSpacerItem, QStackedWidget, QTableWidget,
+                               QTableWidgetItem, QTextEdit, QVBoxLayout, QWidget)
 
-################################################################################
-## Form generated from reading UI file 'invoice.ui'
-##
-## Created by: Qt User Interface Compiler version 6.6.0
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtPdfWidgets import QPdfView
-from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHeaderView,
-    QLabel, QLineEdit, QMainWindow, QPushButton,
-    QSizePolicy, QSpacerItem, QStackedWidget, QTableWidget,
-    QTableWidgetItem, QTextEdit, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -30,9 +13,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
-        self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.page = QWidget()
@@ -41,7 +22,8 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setSpacing(0)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.horizontalSpacer_2 = QSpacerItem(384, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(
+            384, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_2.addItem(self.horizontalSpacer_2, 1, 2, 1, 1)
 
@@ -54,7 +36,8 @@ class Ui_MainWindow(object):
         self.gridLayout_8.setSpacing(0)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.horizontalSpacer_5 = QSpacerItem(57, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_5 = QSpacerItem(
+            57, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_8.addItem(self.horizontalSpacer_5, 0, 0, 1, 1)
 
@@ -67,7 +50,8 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addWidget(self.logo, 0, 1, 1, 1)
 
-        self.horizontalSpacer_6 = QSpacerItem(57, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_6 = QSpacerItem(
+            57, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_8.addItem(self.horizontalSpacer_6, 0, 2, 1, 1)
 
@@ -79,7 +63,8 @@ class Ui_MainWindow(object):
         font.setFamilies([u"Calibri"])
         font.setPointSize(9)
         self.label.setFont(font)
-        self.label.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
+        self.label.setAlignment(
+            Qt.AlignBottom | Qt.AlignLeading | Qt.AlignLeft)
 
         self.gridLayout_8.addWidget(self.label, 1, 0, 1, 3)
 
@@ -99,7 +84,8 @@ class Ui_MainWindow(object):
         self.label_2.setMinimumSize(QSize(250, 30))
         self.label_2.setMaximumSize(QSize(250, 30))
         self.label_2.setFont(font)
-        self.label_2.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
+        self.label_2.setAlignment(
+            Qt.AlignBottom | Qt.AlignLeading | Qt.AlignLeft)
 
         self.gridLayout_8.addWidget(self.label_2, 3, 0, 1, 3)
 
@@ -116,7 +102,8 @@ class Ui_MainWindow(object):
         self.label_3.setMinimumSize(QSize(250, 30))
         self.label_3.setMaximumSize(QSize(250, 30))
         self.label_3.setFont(font)
-        self.label_3.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
+        self.label_3.setAlignment(
+            Qt.AlignBottom | Qt.AlignLeading | Qt.AlignLeft)
 
         self.gridLayout_8.addWidget(self.label_3, 5, 0, 1, 3)
 
@@ -133,7 +120,8 @@ class Ui_MainWindow(object):
         self.label_4.setMinimumSize(QSize(250, 30))
         self.label_4.setMaximumSize(QSize(250, 30))
         self.label_4.setFont(font)
-        self.label_4.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
+        self.label_4.setAlignment(
+            Qt.AlignBottom | Qt.AlignLeading | Qt.AlignLeft)
 
         self.gridLayout_8.addWidget(self.label_4, 7, 0, 1, 3)
 
@@ -145,7 +133,8 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addWidget(self.companyAddress, 8, 0, 1, 3)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(
+            20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_8.addItem(self.verticalSpacer, 9, 1, 1, 1)
 
@@ -160,7 +149,8 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addWidget(self.loadLogo, 10, 0, 1, 3)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_2 = QSpacerItem(
+            20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_8.addItem(self.verticalSpacer_2, 11, 1, 1, 1)
 
@@ -172,14 +162,15 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addWidget(self.goInvoice, 12, 0, 1, 3)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_3 = QSpacerItem(
+            20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_8.addItem(self.verticalSpacer_3, 13, 1, 1, 1)
 
-
         self.gridLayout_2.addWidget(self.widget, 0, 1, 2, 1)
 
-        self.horizontalSpacer = QSpacerItem(384, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(
+            384, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_2.addItem(self.horizontalSpacer, 0, 0, 1, 1)
 
@@ -199,19 +190,19 @@ class Ui_MainWindow(object):
         font3.setPointSize(12)
         font3.setBold(True)
         __qtablewidgetitem = QTableWidgetItem()
-        __qtablewidgetitem.setFont(font3);
+        __qtablewidgetitem.setFont(font3)
         self.table.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
-        __qtablewidgetitem1.setFont(font3);
+        __qtablewidgetitem1.setFont(font3)
         self.table.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
-        __qtablewidgetitem2.setFont(font3);
+        __qtablewidgetitem2.setFont(font3)
         self.table.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
-        __qtablewidgetitem3.setFont(font3);
+        __qtablewidgetitem3.setFont(font3)
         self.table.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setFont(font3);
+        __qtablewidgetitem4.setFont(font3)
         self.table.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         self.table.setObjectName(u"table")
         self.table.setFont(font1)
@@ -229,7 +220,8 @@ class Ui_MainWindow(object):
         self.gridLayout_5.setSpacing(0)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_5.addItem(self.horizontalSpacer_3, 0, 1, 1, 1)
 
@@ -254,7 +246,8 @@ class Ui_MainWindow(object):
         self.n_invoice.setMinimumSize(QSize(100, 30))
         self.n_invoice.setMaximumSize(QSize(100, 30))
         self.n_invoice.setFont(font1)
-        self.n_invoice.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.n_invoice.setAlignment(
+            Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
 
         self.gridLayout_4.addWidget(self.n_invoice, 0, 1, 1, 1)
 
@@ -271,10 +264,10 @@ class Ui_MainWindow(object):
         self.date.setMinimumSize(QSize(100, 30))
         self.date.setMaximumSize(QSize(100, 30))
         self.date.setFont(font1)
-        self.date.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.date.setAlignment(
+            Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
 
         self.gridLayout_4.addWidget(self.date, 1, 1, 1, 1)
-
 
         self.gridLayout_5.addWidget(self.widget2, 0, 0, 1, 1)
 
@@ -294,7 +287,8 @@ class Ui_MainWindow(object):
         font4.setFamilies([u"Calibri"])
         font4.setPointSize(10)
         self.label_14.setFont(font4)
-        self.label_14.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
+        self.label_14.setAlignment(
+            Qt.AlignBottom | Qt.AlignLeading | Qt.AlignLeft)
 
         self.verticalLayout_2.addWidget(self.label_14)
 
@@ -311,7 +305,8 @@ class Ui_MainWindow(object):
         self.label_15.setMinimumSize(QSize(450, 30))
         self.label_15.setMaximumSize(QSize(450, 30))
         self.label_15.setFont(font4)
-        self.label_15.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
+        self.label_15.setAlignment(
+            Qt.AlignBottom | Qt.AlignLeading | Qt.AlignLeft)
 
         self.verticalLayout_2.addWidget(self.label_15)
 
@@ -322,7 +317,6 @@ class Ui_MainWindow(object):
         self.address_client.setFont(font1)
 
         self.verticalLayout_2.addWidget(self.address_client)
-
 
         self.gridLayout_5.addWidget(self.widget3, 1, 0, 1, 1)
 
@@ -345,7 +339,8 @@ class Ui_MainWindow(object):
         font5.setBold(True)
         self.label_10.setFont(font5)
         self.label_10.setLayoutDirection(Qt.LeftToRight)
-        self.label_10.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_10.setAlignment(
+            Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
 
         self.gridLayout_3.addWidget(self.label_10, 0, 0, 1, 1)
 
@@ -364,7 +359,8 @@ class Ui_MainWindow(object):
         self.label_11.setMaximumSize(QSize(100, 30))
         self.label_11.setFont(font5)
         self.label_11.setLayoutDirection(Qt.LeftToRight)
-        self.label_11.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_11.setAlignment(
+            Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
 
         self.gridLayout_3.addWidget(self.label_11, 1, 0, 1, 1)
 
@@ -383,7 +379,8 @@ class Ui_MainWindow(object):
         self.label_12.setMaximumSize(QSize(100, 30))
         self.label_12.setFont(font5)
         self.label_12.setLayoutDirection(Qt.LeftToRight)
-        self.label_12.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_12.setAlignment(
+            Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
 
         self.gridLayout_3.addWidget(self.label_12, 2, 0, 1, 1)
 
@@ -402,7 +399,8 @@ class Ui_MainWindow(object):
         self.label_13.setMaximumSize(QSize(100, 30))
         self.label_13.setFont(font5)
         self.label_13.setLayoutDirection(Qt.LeftToRight)
-        self.label_13.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_13.setAlignment(
+            Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
 
         self.gridLayout_3.addWidget(self.label_13, 3, 0, 1, 1)
 
@@ -415,9 +413,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.rest, 3, 1, 1, 1)
 
-
         self.gridLayout_5.addWidget(self.widget4, 0, 2, 2, 1)
-
 
         self.gridLayout_7.addWidget(self.widget1, 0, 0, 1, 1)
 
@@ -435,7 +431,8 @@ class Ui_MainWindow(object):
         self.label_17.setMinimumSize(QSize(200, 30))
         self.label_17.setMaximumSize(QSize(200, 30))
         self.label_17.setFont(font4)
-        self.label_17.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
+        self.label_17.setAlignment(
+            Qt.AlignBottom | Qt.AlignLeading | Qt.AlignLeft)
 
         self.gridLayout_6.addWidget(self.label_17, 0, 1, 1, 1)
 
@@ -460,7 +457,8 @@ class Ui_MainWindow(object):
         self.label_16.setMinimumSize(QSize(200, 30))
         self.label_16.setMaximumSize(QSize(200, 30))
         self.label_16.setFont(font4)
-        self.label_16.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
+        self.label_16.setAlignment(
+            Qt.AlignBottom | Qt.AlignLeading | Qt.AlignLeft)
 
         self.gridLayout_6.addWidget(self.label_16, 0, 2, 1, 1)
 
@@ -472,7 +470,8 @@ class Ui_MainWindow(object):
         font6.setFamilies([u"Calibri"])
         font6.setPointSize(13)
         self.quantity.setFont(font6)
-        self.quantity.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.quantity.setAlignment(
+            Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
 
         self.gridLayout_6.addWidget(self.quantity, 1, 1, 1, 1)
 
@@ -494,7 +493,8 @@ class Ui_MainWindow(object):
         self.price.setMinimumSize(QSize(200, 30))
         self.price.setMaximumSize(QSize(200, 30))
         self.price.setFont(font6)
-        self.price.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.price.setAlignment(
+            Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
 
         self.gridLayout_6.addWidget(self.price, 1, 2, 1, 1)
 
@@ -506,52 +506,14 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.addProduct, 1, 3, 1, 1)
 
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_4 = QSpacerItem(
+            40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_6.addItem(self.horizontalSpacer_4, 1, 4, 1, 1)
-
 
         self.gridLayout_7.addWidget(self.widget_3, 1, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.page_2)
-        self.page_3 = QWidget()
-        self.page_3.setObjectName(u"page_3")
-        self.gridLayout_9 = QGridLayout(self.page_3)
-        self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.gridLayout_9.setHorizontalSpacing(20)
-        self.gridLayout_9.setVerticalSpacing(10)
-        self.gridLayout_9.setContentsMargins(20, 0, 20, 10)
-        self.pdfView = QPdfView(self.page_3)
-        self.pdfView.setObjectName(u"pdfView")
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(10)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pdfView.sizePolicy().hasHeightForWidth())
-        self.pdfView.setSizePolicy(sizePolicy)
-
-        self.gridLayout_9.addWidget(self.pdfView, 0, 0, 1, 3)
-
-        self.horizontalSpacer_7 = QSpacerItem(757, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_9.addItem(self.horizontalSpacer_7, 1, 0, 1, 1)
-
-        self.pushButton = QPushButton(self.page_3)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(100, 30))
-        self.pushButton.setMaximumSize(QSize(100, 30))
-        self.pushButton.setFont(font2)
-
-        self.gridLayout_9.addWidget(self.pushButton, 1, 1, 1, 1)
-
-        self.pushButton_2 = QPushButton(self.page_3)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(100, 30))
-        self.pushButton_2.setMaximumSize(QSize(100, 30))
-        self.pushButton_2.setFont(font2)
-
-        self.gridLayout_9.addWidget(self.pushButton_2, 1, 2, 1, 1)
-
-        self.stackedWidget.addWidget(self.page_3)
 
         self.gridLayout.addWidget(self.stackedWidget, 0, 0, 1, 1)
 
@@ -561,72 +523,100 @@ class Ui_MainWindow(object):
 
         self.stackedWidget.setCurrentIndex(0)
 
-
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.logo.setText(QCoreApplication.translate("MainWindow", u"LOGO", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate(
+            "MainWindow", u"MainWindow", None))
+        self.logo.setText(QCoreApplication.translate(
+            "MainWindow", u"LOGO", None))
         self.label.setText("")
-        self.companyName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Company Name", None))
+        self.companyName.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Company Name", None))
         self.label_2.setText("")
-        self.phone.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Phone", None))
+        self.phone.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Phone", None))
         self.label_3.setText("")
-        self.email.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email", None))
+        self.email.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Email", None))
         self.label_4.setText("")
         self.companyAddress.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"hr { height: 1px; border-width: 0; }\n"
-"li.unchecked::marker { content: \"\\2610\"; }\n"
-"li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Calibri'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
-        self.companyAddress.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Address", None))
-        self.loadLogo.setText(QCoreApplication.translate("MainWindow", u"Load Logo", None))
-        self.goInvoice.setText(QCoreApplication.translate("MainWindow", u"Go To Invoice", None))
+                                                               "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+                                                               "p, li { white-space: pre-wrap; }\n"
+                                                               "hr { height: 1px; border-width: 0; }\n"
+                                                               "li.unchecked::marker { content: \"\\2610\"; }\n"
+                                                               "li.checked::marker { content: \"\\2612\"; }\n"
+                                                               "</style></head><body style=\" font-family:'Calibri'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+                                                               "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
+        self.companyAddress.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Address", None))
+        self.loadLogo.setText(QCoreApplication.translate(
+            "MainWindow", u"Load Logo", None))
+        self.goInvoice.setText(QCoreApplication.translate(
+            "MainWindow", u"Go To Invoice", None))
         ___qtablewidgetitem = self.table.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"N\u00b0 Product", None));
+        ___qtablewidgetitem.setText(QCoreApplication.translate(
+            "MainWindow", u"N\u00b0 Product", None))
         ___qtablewidgetitem1 = self.table.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Description", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate(
+            "MainWindow", u"Description", None))
         ___qtablewidgetitem2 = self.table.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Quantity", None));
+        ___qtablewidgetitem2.setText(
+            QCoreApplication.translate("MainWindow", u"Quantity", None))
         ___qtablewidgetitem3 = self.table.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Price", None));
+        ___qtablewidgetitem3.setText(
+            QCoreApplication.translate("MainWindow", u"Price", None))
         ___qtablewidgetitem4 = self.table.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Amount", None));
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"N\u00b0 Invoice :", None))
+        ___qtablewidgetitem4.setText(
+            QCoreApplication.translate("MainWindow", u"Amount", None))
+        self.label_6.setText(QCoreApplication.translate(
+            "MainWindow", u"N\u00b0 Invoice :", None))
         self.n_invoice.setText("")
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Date :", None))
+        self.label_8.setText(QCoreApplication.translate(
+            "MainWindow", u"Date :", None))
         self.date.setText("")
         self.label_14.setText("")
         self.client.setText("")
-        self.client.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Client", None))
+        self.client.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Client", None))
         self.label_15.setText("")
-        self.address_client.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Address", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Total :", None))
+        self.address_client.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Address", None))
+        self.label_10.setText(QCoreApplication.translate(
+            "MainWindow", u"Total :", None))
         self.total.setText("")
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Discount :", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Payment :", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Rest :", None))
+        self.label_11.setText(QCoreApplication.translate(
+            "MainWindow", u"Discount :", None))
+        self.label_12.setText(QCoreApplication.translate(
+            "MainWindow", u"Payment :", None))
+        self.label_13.setText(QCoreApplication.translate(
+            "MainWindow", u"Rest :", None))
         self.label_17.setText("")
-        self.printSaveInvoice.setText(QCoreApplication.translate("MainWindow", u"Print / Save Invoice", None))
-        self.newInvoice.setText(QCoreApplication.translate("MainWindow", u"New Invoice", None))
+        self.printSaveInvoice.setText(QCoreApplication.translate(
+            "MainWindow", u"Print / Save Invoice", None))
+        self.newInvoice.setText(QCoreApplication.translate(
+            "MainWindow", u"New Invoice", None))
         self.label_16.setText("")
         self.quantity.setText("")
-        self.quantity.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Quantity", None))
-        self.product.setItemText(0, QCoreApplication.translate("MainWindow", u"product-101", None))
-        self.product.setItemText(1, QCoreApplication.translate("MainWindow", u"product-102", None))
-        self.product.setItemText(2, QCoreApplication.translate("MainWindow", u"product-103", None))
-        self.product.setItemText(3, QCoreApplication.translate("MainWindow", u"product-104", None))
-        self.product.setItemText(4, QCoreApplication.translate("MainWindow", u"product-105", None))
+        self.quantity.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Quantity", None))
+        self.product.setItemText(0, QCoreApplication.translate(
+            "MainWindow", u"product-101", None))
+        self.product.setItemText(1, QCoreApplication.translate(
+            "MainWindow", u"product-102", None))
+        self.product.setItemText(2, QCoreApplication.translate(
+            "MainWindow", u"product-103", None))
+        self.product.setItemText(3, QCoreApplication.translate(
+            "MainWindow", u"product-104", None))
+        self.product.setItemText(4, QCoreApplication.translate(
+            "MainWindow", u"product-105", None))
 
-        self.product.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Product", None))
+        self.product.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Product", None))
         self.price.setText("")
-        self.price.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Price", None))
-        self.addProduct.setText(QCoreApplication.translate("MainWindow", u"Add Product", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Cancel", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Print", None))
+        self.price.setPlaceholderText(
+            QCoreApplication.translate("MainWindow", u"Price", None))
+        self.addProduct.setText(QCoreApplication.translate(
+            "MainWindow", u"Add Product", None))
     # retranslateUi
-
