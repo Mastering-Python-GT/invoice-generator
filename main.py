@@ -4,13 +4,14 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidg
 from invoice_ui import Ui_MainWindow
 from datetime import date
 from creteReport import SalesInvoice
-from PySide6.QtPdf import QPdfDocument
-from PySide6.QtPdfWidgets import QPdfView
+from pdfViewer import PdfViewer
 import os
 import shutil
 
 class MainWindow(QMainWindow, Ui_MainWindow):
+
     def __init__(self):
+
         super().__init__()
         self.setupUi(self)
         self.m_document = None
@@ -23,7 +24,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         d_ate = date.today()
         self.today = d_ate.strftime("%d-%m-%Y")
         self.date.setText(self.today)
-        
 
         self.companyName.textChanged.connect(self.company_label)
         self.email.textChanged.connect(self.email_label)
@@ -44,18 +44,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.goInvoice.clicked.connect(self.go_invoice)
         self.loadLogo.clicked.connect(self.addLogo)
         self.addProduct.clicked.connect(self.add_product)
-        self.discount.textChanged.connect(self.discount_change)
-        self.payment.textChanged.connect(self.payment_change)
         self.printSaveInvoice.clicked.connect(self.showMenu)
 
-        self.pushButton.clicked.connect(self.cancelPrint)   
         self.newInvoice.clicked.connect(self.new_nvoice)
 
         self.showMaximized()
 
     def go_invoice(self):
         self.stackedWidget.setCurrentIndex(1)
-
+    
     def add_product(self):
         row = self.table.rowCount()
         self.table.insertRow(row)
@@ -79,26 +76,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             k = '{:,}'.format(k)
             self.total.setText(k)
 
-    def discount_change(self):
-        if self.discount.text().__contains__(","):
-            e = self.discount.text().replace(",", "")
-            e = '{:,}'.format(int(e))
-        else:
-            e = int(self.discount.text())
-            e = '{:,}'.format(e)
-
-        self.discount.setText(str(e))
-
-    def payment_change(self):
-        if self.payment.text().__contains__(","):
-            e = self.payment.text().replace(",", "")
-            e = '{:,}'.format(int(e))
-        else:
-            e = int(self.payment.text())
-            e = '{:,}'.format(e)
-            
-        self.payment.setText(str(e))
-
     def showMenu(self):
 
         context = QMenu()
@@ -117,39 +94,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         context.exec(QCursor.pos())
 
-    def new_nvoice(self):
-
-        for i in range(self.table.rowCount()):
-            self.table.removeRow(0)
-
-        self.client.clear()
-        self.address_client.clear()
-        self.quantity.clear()
-        self.price.clear()
-        self.total.setText("0")
-        self.discount.setText("0")
-        self.payment.setText("0")
-        self.rest.setText("0")
-
-        k = self.n_invoice.text()
-        k = int(k.split("-", 1)[0]) + 1
-        k = str(k)+"-"+str(date.today().year)
-        self.n_invoice.setText(k)
-
-    def createInvoice(self):
-        SalesInvoice(self.companyName.text(), self.email.text(), self.phone.text(), self.companyAddress.toPlainText().strip(), self.table, self.logoFile, self.total.text(
-        ), self.discount.text(), self.payment.text(), self.rest.text(), self.client.text(), self.address_client.text(), self.n_invoice.text())
-        
-    def saveInvoice(self):
-
-        self.createInvoice()
-
-        file = self.n_invoice.text()+"_"+self.client.text()+".pdf"
-
-        shutil.copyfile(f'{file}', f'./saved_Invoices/{file}')
-
-        os.remove(file)
-
     def cancelInvoice(self):
 
         for i in range(self.table.rowCount()):
@@ -164,23 +108,44 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.payment.setText("0")
         self.rest.setText("0")
 
+    def new_nvoice(self):
 
-    def cancelPrint(self):
-        self.m_document = QPdfDocument()
-        self.stackedWidget.setCurrentIndex(1)
+        for i in range(self.table.rowCount()):
+            self.table.removeRow(0)
+
+        self.client.clear()
+        self.address_client.clear()
+        self.quantity.clear()
+        self.price.clear()
+        self.total.clear()
+        self.discount.clear()
+        self.payment.clear()
+        self.rest.clear()
+
+        k = self.n_invoice.text()
+        k = int(k.split("-", 1)[0]) + 1
+        k = str(k)+"-"+str(date.today().year)
+        self.n_invoice.setText(k)
+
+    def createInvoice(self):
+        SalesInvoice(self.companyName.text(), self.email.text(), self.phone.text(), self.companyAddress.toPlainText().strip(), self.table, self.logoFile, self.total.text(
+        ), self.discount.text(), self.payment.text(), self.rest.text(), self.client.text(), self.address_client.text(), self.n_invoice.text())
+
+    def saveInvoice(self):
+
+        self.createInvoice()
+
         file = self.n_invoice.text()+"_"+self.client.text()+".pdf"
+        shutil.copy(f'{file}', f'./saved_Invoices/{file}')
         os.remove(file)
 
-
     def printInvoice(self):
-        self.createInvoice()
-        self.m_document = QPdfDocument()
-        self.pdfView.setDocument(self.m_document)
-        self.pdfView.setPageMode(QPdfView.PageMode.MultiPage)
-        file = self.n_invoice.text()+"_"+self.client.text()+".pdf"
-        self.m_document.load(file)
-        self.stackedWidget.setCurrentIndex(2)
 
+        self.createInvoice()
+        file = self.n_invoice.text()+"_"+self.client.text()+".pdf"
+        self.pdf_viewer = PdfViewer(file)
+        self.pdf_viewer.showMaximized()
+        
     def addLogo(self):
         self.logoFile = QFileDialog.getOpenFileName(filter="jpg (*.jpg)")[0]
         pixmap = QPixmap(self.logoFile)
@@ -279,12 +244,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         else:
             self.discount.setStyleSheet("border-bottom: 2px solid #7B68EE")
 
+            if self.discount.text().__contains__(","):
+                e = self.discount.text().replace(",", "")
+                e = '{:,}'.format(int(e))
+            else:
+                e = int(self.discount.text())
+                e = '{:,}'.format(e)
+
+            self.discount.setText(str(e))
+
     def paymentChanged(self):
         if self.payment.text() == "":
             self.payment.setStyleSheet(
                 "focus{border-bottom: 2px solid #7B68EE;}")
         else:
             self.payment.setStyleSheet("border-bottom: 2px solid #7B68EE")
+            if self.payment.text().__contains__(","):
+                e = self.payment.text().replace(",", "")
+                e = '{:,}'.format(int(e))
+            else:
+                e = int(self.payment.text())
+                e = '{:,}'.format(e)
+
+            self.payment.setText(str(e))
 
     def restChanged(self):
         if self.rest.text() == "":
